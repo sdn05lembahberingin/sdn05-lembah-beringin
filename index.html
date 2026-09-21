@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SDN 05 Lembah Beringin | Sekolah Dasar Negeri</title>
+
+    <meta name="description" content="Website resmi SDN 05 Lembah Beringin, Nanga Mahap, Kabupaten Sekadau, Kalimantan Barat.">
+    <meta name="keywords" content="SDN 05 Lembah Beringin, SDN 05 Lembah Beringin Nanga Mahap, sekolah dasar, Sekadau">
+    <meta name="author" content="SDN 05 Lembah Beringin">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #b71c1c;
+            color: white;
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 12px;
+            font-weight: normal;
+            margin-top: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 22px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 560px;
+            background: linear-gradient(
+                rgba(120, 0, 0, 0.75),
+                rgba(120, 0, 0, 0.75)
+            ),
+            url("https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            background: white;
+            color: #b71c1c;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .button:hover {
+            background: #f5f5f5;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 75px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            color: #b71c1c;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* PROFIL */
+        .profile {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .profile img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .profile h3 {
+            color: #b71c1c;
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .profile p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* VISI MISI */
+        .visi-misi {
+            background: #fafafa;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 5px solid #b71c1c;
+        }
+
+        .card h3 {
+            color: #b71c1c;
+            margin-bottom: 15px;
+            font-size: 23px;
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+        }
+
+        /* IDENTITAS */
+        .identity {
+            background: #b71c1c;
+            color: white;
+        }
+
+        .identity .section-title h2,
+        .identity .section-title p {
+            color: white;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .identity-box {
+            background: rgba(255,255,255,0.12);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .identity-box h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .identity-box p {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        /* GURU */
+        .teacher-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .teacher {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .teacher img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .teacher-info {
+            padding: 18px;
+        }
+
+        .teacher-info h3 {
+            color: #b71c1c;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .teacher-info p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* GALERI */
+        .gallery {
+            background: #fafafa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        /* KONTAK */
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-box {
+            padding: 30px;
+            background: #fafafa;
+            border-radius: 15px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-item h4 {
+            color: #b71c1c;
+            margin-bottom: 5px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .profile,
+            .contact,
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .identity-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .teacher-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 55px 5%;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .identity-grid,
+            .teacher-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .teacher img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            SDN 05 LEMBAH BERINGIN
+            <span>Nanga Mahap • Kabupaten Sekadau</span>
+        </div>
+
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#visi">Visi & Misi</a></li>
+            <li><a href="#guru">Guru & Tendik</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- BERANDA -->
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+
+            <h1>SDN 05 Lembah Beringin</h1>
+
+            <p>
+                Membangun generasi yang berkarakter,
+                kreatif, mandiri, dan berprestasi.
+            </p>
+
+            <a href="#profil" class="button">
+                Mengenal Sekolah
+            </a>
+
+            <a href="#kontak" class="button">
+                Hubungi Kami
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- PROFIL -->
+    <section id="profil">
+
+        <div class="section-title">
+            <h2>Profil Sekolah</h2>
+            <p>Mengenal lebih dekat SDN 05 Lembah Beringin</p>
+        </div>
+
+        <div class="profile">
+
+            <div>
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80"
+                     alt="Lingkungan sekolah">
+            </div>
+
+            <div>
+
+                <h3>SDN 05 Lembah Beringin</h3>
+
+                <p>
+                    SDN 05 Lembah Beringin merupakan satuan pendidikan
+                    dasar yang berada di wilayah Nanga Mahap,
+                    Kabupaten Sekadau, Provinsi Kalimantan Barat.
+                </p>
+
+                <p>
+                    Website ini menjadi media informasi sekolah untuk
+                    memperkenalkan profil sekolah, kegiatan pembelajaran,
+                    guru dan tenaga kependidikan, serta berbagai kegiatan
+                    sekolah kepada masyarakat.
+                </p>
+
+                <p>
+                    Data pada halaman ini akan terus diperbarui sesuai
+                    dengan informasi resmi sekolah.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- VISI MISI -->
+    <section class="visi-misi" id="visi">
+
+        <div class="section-title">
+            <h2>Visi & Misi</h2>
+            <p>Arah dan tujuan pendidikan sekolah</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Visi Sekolah</h3>
+
+                <p>
+                    <strong>
+                    Silakan masukkan visi resmi SDN 05 Lembah Beringin di sini.
+                    </strong>
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Misi Sekolah</h3>
+
+                <ul>
+                    <li>Silakan masukkan misi sekolah.</li>
+                    <li>Silakan masukkan misi sekolah.</li>
+                    <li>Silakan masukkan misi sekolah.</li>
+                    <li>Silakan masukkan misi sekolah.</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- IDENTITAS SEKOLAH -->
+    <section class="identity">
+
+        <div class="section-title">
+
+            <h2>Identitas Sekolah</h2>
+
+            <p>
+                Informasi umum SDN 05 Lembah Beringin
+            </p>
+
+        </div>
+
+        <div class="identity-grid">
+
+            <div class="identity-box">
+                <h4>Nama Sekolah</h4>
+                <p>SDN 05 Lembah Beringin</p>
+            </div>
+
+            <div class="identity-box">
+                <h4>Jenjang</h4>
+                <p>Sekolah Dasar</p>
+            </div>
+
+            <div class="identity-box">
+                <h4>Desa/Kelurahan</h4>
+                <p>Lembah Beringin</p>
+            </div>
+
+            <div class="identity-box">
+                <h4>Kecamatan</h4>
+                <p>Nanga Mahap</p>
+            </div>
+
+            <div class="identity-box">
+                <h4>Kabupaten</h4>
+                <p>Sekadau</p>
+            </div>
+
+            <div class="identity-box">
+                <h4>Provinsi</h4>
+                <p>Kalimantan Barat</p>
+            </div>
+
+            <div class="identity-box">
+                <h4>NPSN</h4>
+                <p>Isi NPSN</p>
+            </div>
+
+            <div class="identity-box">
+                <h4>Akreditasi</h4>
+                <p>Isi Akreditasi</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GURU -->
+    <section id="guru">
+
+        <div class="section-title">
+
+            <h2>Guru & Tenaga Kependidikan</h2>
+
+            <p>
+                Pendidik dan tenaga kependidikan
+                SDN 05 Lembah Beringin
+            </p>
+
+        </div>
+
+        <div class="teacher-grid">
+
+            <div class="teacher">
+
+                <img src="https://via.placeholder.com/500x600?text=Foto+Kepala+Sekolah"
+                     alt="Kepala Sekolah">
+
+                <div class="teacher-info">
+
+                    <h3>Nama Kepala Sekolah</h3>
+
+                    <p>Kepala Sekolah</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="teacher">
+
+                <img src="https://via.placeholder.com/500x600?text=Foto+Guru"
+                     alt="Guru">
+
+                <div class="teacher-info">
+
+                    <h3>Nama Guru</h3>
+
+                    <p>Guru Kelas</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="teacher">
+
+                <img src="https://via.placeholder.com/500x600?text=Foto+Guru"
+                     alt="Guru">
+
+                <div class="teacher-info">
+
+                    <h3>Nama Guru</h3>
+
+                    <p>Guru Kelas</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="teacher">
+
+                <img src="https://via.placeholder.com/500x600?text=Foto+Guru"
+                     alt="Guru">
+
+                <div class="teacher-info">
+
+                    <h3>Nama Guru</h3>
+
+                    <p>Guru Kelas / Mata Pelajaran</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALERI -->
+    <section class="gallery" id="galeri">
+
+        <div class="section-title">
+
+            <h2>Galeri Kegiatan</h2>
+
+            <p>
+                Dokumentasi kegiatan SDN 05 Lembah Beringin
+            </p>
+
+        </div>
+
+        <div class="gallery-grid">
+
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80"
+                 alt="Kegiatan pembelajaran">
+
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80"
+                 alt="Kegiatan siswa">
+
+            <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80"
+                 alt="Kegiatan sekolah">
+
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
+                 alt="Lingkungan sekolah">
+
+            <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80"
+                 alt="Pembelajaran">
+
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+                 alt="Guru dan siswa">
+
+        </div>
+
+    </section>
+
+
+    <!-- KONTAK -->
+    <section id="kontak">
+
+        <div class="section-title">
+
+            <h2>Hubungi Kami</h2>
+
+            <p>
+                Informasi kontak SDN 05 Lembah Beringin
+            </p>
+
+        </div>
+
+        <div class="contact">
+
+            <div class="contact-box">
+
+                <div class="contact-item">
+                    <h4>📍 Alamat</h4>
+                    <p>
+                        Lembah Beringin, Kecamatan Nanga Mahap,
+                        Kabupaten Sekadau, Kalimantan Barat.
+                    </p>
+                </div>
+
+                <div class="contact-item">
+                    <h4>📞 Telepon</h4>
+                    <p>Nomor telepon sekolah</p>
+                </div>
+
+                <div class="contact-item">
+                    <h4>✉️ Email</h4>
+                    <p>Alamat email sekolah</p>
+                </div>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <div class="contact-item">
+                    <h4>📱 Media Sosial</h4>
+                    <p>Instagram: @namaakunsekolah</p>
+                </div>
+
+                <div class="contact-item">
+                    <h4>🌐 Website</h4>
+                    <p>Website resmi SDN 05 Lembah Beringin</p>
+                </div>
+
+                <div class="contact-item">
+                    <h4>🗺️ Lokasi</h4>
+                    <p>
+                        Nanga Mahap, Kabupaten Sekadau,
+                        Kalimantan Barat
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            <strong>SDN 05 Lembah Beringin</strong>
+        </p>
+
+        <p>
+            Nanga Mahap • Kabupaten Sekadau • Kalimantan Barat
+        </p>
+
+        <p>
+            © 2026 SDN 05 Lembah Beringin. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
